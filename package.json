@@ -1,6 +1,6 @@
 {
   "name": "xazure-cms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight, ultra flexible content management system.",
   "main": "index.js",
   "bin": {
