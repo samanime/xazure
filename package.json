@@ -1,0 +1,49 @@
+{
+  "name": "xazure-cms",
+  "version": "0.1.0",
+  "description": "A lightweight, ultra flexible content management system.",
+  "main": "index.js",
+  "bin": {
+    "xazure-cms": "dist/bin/start.js"
+  },
+  "scripts": {
+    "postpublish": "git push & git push --tags",
+    "start": "npm run clean & babel src -d dist -s -w",
+    "build": "babel src -d dist -s",
+    "clean": "rimraf -rf dist || exit 0"
+  },
+  "author": "Christian Snodgrass <christian.snodgrass.open@gmail.com> (http://xazure.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samanime/xazure-cms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samanime/xazure-cms/issues"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "clone": "^2.1.1",
+    "command-line-args": "^4.0.7",
+    "connect-mongo": "^2.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.0-rc0",
+    "xazure-cms-utils": "^0.1.0",
+    "xazure-event-manager": "^0.1.0",
+    "xazure-logger": "^0.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-import-rename": "^1.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "concurrently": "^3.5.1",
+    "cpx": "^1.5.0",
+    "rimraf": "^2.6.2",
+    "source-map-support": "^0.5.0"
+  }
+}
