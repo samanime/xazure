@@ -4,6 +4,7 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import MongoStore from 'connect-mongo';
 import mongoose from 'mongoose';
+import moment from 'moment';
 import { join, resolve } from 'path';
 import { requireFile, flatten, normalizeModules, checkConfig, stringifyConfig } from './utils';
 import logger, { Levels } from 'xazure-logger';
@@ -42,8 +43,8 @@ export default async (configPath, portOption) => {
     mongoose.Promise = global.Promise;
   }
 
-  const eventParams = ({ config, eventManager, mongoose, a: eventManager.apply.bind(eventManager) });
-  eventManager.addMap(getEvents(eventParams));
+  const commonParams = ({ config, eventManager, mongoose, a: eventManager.apply.bind(eventManager) });
+  eventManager.addMap(getEvents(commonParams));
 
   logger.willLog(Levels.DEBUG) && logger.debug(stringifyConfig(config));
 
@@ -59,8 +60,9 @@ export default async (configPath, portOption) => {
   }));
 
   app.use(async (req, res, next) => {
+    const start = Date.now();
     res.on('finish', () => {
-      logger.info(`${req.url} | ${res.statusCode} | ${req.session.userId}`);
+      logger.info(`[${moment().format()}] ${req.url} | ${res.statusCode} | ${req.session.userId} | ${Date.now() - start}`);
     });
 
     !(await eventManager.apply('allowed', { req, allowed: true }))
@@ -68,16 +70,18 @@ export default async (configPath, portOption) => {
   });
 
   app.get('/config', (req, res) => res.send(publicConfig));
-  app.get(`${publicPath}/babel-polyfill`, (req, res) => res.sendFile(resolve(require.resolve('babel-polyfill'), '../../dist/polyfill.js')));
+  app.get(`${publicPath}/babel-polyfill`, (req, res) =>
+    res.sendFile(resolve(require.resolve('babel-polyfill'), '../../dist/polyfill.js')));
 
-  flatten(modules.map(module => {
-    console.log(module);
-    const { controller, events, name, filePath, publicFilePath, path, publicPath } = module;
-    const params = { ...eventParams, module };
+  const { messages, controllerPaths, staticFiles } = modules.map(module => {
+    const { controller, events, name, publicFilePath, path, publicPath } = module;
+    const params = { ...commonParams, module };
+    const controllerPaths = [];
+    const staticFiles = [];
     const messages = [];
     
     if (controller) {
-      app.use(path, controller(params));
+      controllerPaths.push({ path, handler: controller(params) });
       messages.push(`[${name}] Registered controller to ${path}`);
     }
     
@@ -87,12 +91,22 @@ export default async (configPath, portOption) => {
     }
     
     if (publicPath && publicFilePath) {
-      app.use(publicPath, express.static(publicFilePath));
+      staticFiles.push({ path: publicPath, handler: express.static(publicFilePath) });
       messages.push(`[${name}] Registered public directory to ${publicPath}`);
     }
 
-    return messages;
-  })).sort().forEach(m => logger.log(m));
+    return { messages, staticFiles, controllerPaths };
+  }).reduce((r, { messages, staticFiles, controllerPaths }) =>
+    ({
+      messages: r.messages.concat(messages),
+      controllerPaths: r.controllerPaths.concat(controllerPaths),
+      staticFiles: r.staticFiles.concat(staticFiles)
+    }),
+    { messages: [], controllerPaths: [], staticFiles: []});
+
+  staticFiles.forEach(({ path, handler }) => app.use(path, handler));
+  controllerPaths.forEach(({ path, handler }) => app.use(path, handler));
+  messages.sort().forEach(m => logger.log(m));
 
   await eventManager.apply('init');
 

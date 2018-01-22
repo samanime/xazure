@@ -28,3 +28,8 @@ that can do everything from adding data manipulation, new pages, data models, et
   - `MongoDB` - For data storage.
   - `Xazure Event Manager` - An async-first event manager.
   - `Xazure Logger` - An easy-to-use, configurable logger.
+  
+## TODO
+
+  - Add way to specify HTTP error pages.
+  - Add error handler registering.

@@ -12,7 +12,8 @@ export const requireFile = async file => {
     const obj = require(file.default || file);
     return obj.default || obj;
   } catch (e) {
-    throw new Error(`Error requiring file '${file}': ${e}`);
+    e.message = `Error requiring file '${file}': ${e}`;
+    throw e;
   }
 };
 
@@ -22,8 +23,6 @@ export const stat = path => new Promise((resolve, reject) =>
 export const flatten = arr => arr.reduce((flat, a) => flat.concat(a), []);
 
 export const normalizeModules = modules => modules.map(module => {
-  console.log(module);
-
   const obj = typeof module === 'object' ? module : { name: module };
 
   if (!obj.name) {

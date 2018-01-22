@@ -1,10 +1,10 @@
 {
-  "name": "xazure-cms",
+  "name": "xazure",
   "version": "0.1.1",
-  "description": "A lightweight, ultra flexible content management system.",
+  "description": "A lightweight, ultra flexible framework system.",
   "main": "index.js",
   "bin": {
-    "xazure-cms": "dist/bin/start.js"
+    "xazure": "dist/bin/start.js"
   },
   "scripts": {
     "postpublish": "git push & git push --tags",
@@ -16,10 +16,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samanime/xazure-cms.git"
+    "url": "https://github.com/samanime/xazure.git"
   },
   "bugs": {
-    "url": "https://github.com/samanime/xazure-cms/issues"
+    "url": "https://github.com/samanime/xazure/issues"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -29,15 +29,15 @@
     "connect-mongo": "^2.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "moment": "^2.20.1",
     "mongoose": "^5.0.0-rc0",
-    "xazure-cms-utils": "^0.1.0",
+    "xazure-utils": "^0.1.0",
     "xazure-event-manager": "^0.1.0",
     "xazure-logger": "^0.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-import-rename": "^1.0.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",

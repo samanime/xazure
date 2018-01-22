@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 /* global process */
-import 'babel-polyfill';
 import 'source-map-support/register';
+import 'babel-polyfill';
 import commandLineArgs from 'command-line-args';
 import { join, delimiter } from 'path';
 import server from '..';
