@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provides blog post functionality for Xazure framework.",
   "main": "dist",
   "scripts": {
@@ -33,7 +33,7 @@
     "mongoose": "^5.0.0-rc0"
   },
   "devDependencies": {
-    "@xazure/builder": "^0.1.1",
+    "@xazure/builder": "^0.1.2",
     "@xazure/builder-module": "^0.1.0",
     "@xazure/utils": "^0.1.1",
     "babel-cli": "^6.26.0",

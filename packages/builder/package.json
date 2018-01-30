@@ -3,10 +3,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "dist",
-  "bin": "dist/bin/index.js",
+  "bin": "dist/bin",
   "scripts": {
     "prepare": "npm run clean ; npm run build",
     "start": "npm run clean & npm run build -- -w",

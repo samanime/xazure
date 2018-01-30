@@ -1,7 +1,7 @@
 {
   "name": "@xazure/demo",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A basic demo of Xazure framework.",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,7 @@
     "@xazure/logger-console": "^0.1.0",
     "@xazure/module-admin": "^0.1.1",
     "@xazure/module-auth": "^0.1.1",
-    "@xazure/module-posts": "^0.1.1",
+    "@xazure/module-posts": "^0.1.2",
     "@xazure/module-theme": "^0.1.1",
     "@xazure/theme-default": "^0.1.1",
     "merge": "^1.2.0",
