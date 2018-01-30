@@ -1,0 +1,36 @@
+{
+  "name": "@xazure/utils",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "description": "Common utilities for Xazure framework modules.",
+  "main": "dist/main",
+  "jsnext:main": "dist/module",
+  "module": "dist/module",
+  "scripts": {
+    "start": "npm run clean & concurrently \"npm run build:main -- -w\" \"npm run build:module -- -w\"",
+    "clean": "rimraf -rf dist || exit 0",
+    "build": "npm run build:main & npm run build:module",
+    "build:main": "babel src -d dist/main -s",
+    "build:module": "cross-env BABEL_ENV=module babel src -d dist/module -s"
+  },
+  "author": "Christian Snodgrass <christian.snodgrass.open@gmail.com> (http://xazure.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samanime/xazure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samanime/xazure/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.3",
+    "rimraf": "^2.6.2"
+  },
+  "xazure": "utility"
+}

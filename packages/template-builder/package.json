@@ -1,0 +1,31 @@
+{
+  "name": "xazure-template-builder",
+  "private": true,
+  "version": "0.2.6",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "Christian Snodgrass <christian.snodgrass.open@gmail.com> (http://xazure.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samanime/xazure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samanime/xazure/issues"
+  },
+  "xazure": "builder",
+  "scripts": {
+    "prepare": "npm run clean & npm run build",
+    "start": "npm run clean & npm run build -- -w",
+    "clean": "rimraf dist",
+    "build": "babel src -d dist -s"
+  },
+  "dependencies": {
+    "@xazure/builder-common": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "rimraf": "^2.6.2"
+  }
+}

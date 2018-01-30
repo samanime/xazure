@@ -1,0 +1,64 @@
+{
+  "name": "@xazure/demo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A basic demo of Xazure framework.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run clean & npm run build & xazure dev-mode",
+    "clean": "rimraf -rf dist || exit 0",
+    "start:watch": "nodemon --exec \"npm run start\"",
+    "build": "babel src -d dist -s",
+    "build:watch": "npm run build -- -w",
+    "kill": "kill-port 8000 || exit 0"
+  },
+  "nodemonConfig": {
+    "ignoreRoot": [
+      ".git"
+    ],
+    "watch": [
+      "config.js",
+      "node_modules/xazure-event-manager/dist",
+      "node_modules/xazure-logger/dist",
+      "node_modules/xazure-logger-console/dist",
+      "node_modules/xazure/dist",
+      "node_modules/xazure-module-auth/dist",
+      "node_modules/xazure-module-admin/dist",
+      "node_modules/xazure-module-posts/dist",
+      "node_modules/xazure-module-theme/dist",
+      "node_modules/xazure-theme-default/dist",
+      "node_modules/xazure-utils/dist"
+    ]
+  },
+  "author": "Christian Snodgrass <christian.snodgrass.open@gmail.com> (http://xazure.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samanime/xazure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samanime/xazure/issues"
+  },
+  "dependencies": {
+    "@xazure/logger-console": "^0.1.0",
+    "@xazure/module-admin": "^0.1.0",
+    "@xazure/module-auth": "^0.1.0",
+    "@xazure/module-posts": "^0.1.0",
+    "@xazure/module-theme": "^0.1.0",
+    "@xazure/theme-default": "^0.1.0",
+    "merge": "^1.2.0",
+    "xazure": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-import-rename": "^1.0.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "cpx": "^1.5.0",
+    "cross-port-killer": "^1.0.1",
+    "nodemon": "^1.14.6",
+    "rimraf": "^2.6.2"
+  },
+  "xazure": "app"
+}
