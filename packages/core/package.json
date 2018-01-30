@@ -23,6 +23,11 @@
     "url": "https://github.com/samanime/xazure/issues"
   },
   "dependencies": {
+    "@xazure/builder": "^0.x",
+    "@xazure/builder-common": "0.x",
+    "@xazure/event-manager": "^0.x",
+    "@xazure/logger": "^0.x",
+    "@xazure/utils": "^0.x",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "clone": "^2.1.1",
@@ -30,12 +35,7 @@
     "connect-mongo": "^2.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "mongoose": "^5.0.0-rc0",
-    "xazure-builder": "^0.1.1",
-    "xazure-builder-common": "0.0.2",
-    "xazure-event-manager": "^0.1.0",
-    "xazure-logger": "^0.1.2",
-    "xazure-utils": "^0.1.0"
+    "mongoose": "^5.0.0-rc0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
