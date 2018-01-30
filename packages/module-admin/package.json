@@ -3,11 +3,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provides an extensible admin control panel for Xazure framework.",
   "main": "dist",
   "scripts": {
-    "prepare": "npm run clean ; npm run build",
+    "prepare": "npm run clean & npm run build",
     "start": "npm run clean & concurrently \"npm run js:watch\" \"npm run css:watch\" \"npm run static:watch\"",
     "clean": "rimraf -rf dist",
     "build": "npm run clean & npm run js & npm run js:module & npm run css & npm run static",
@@ -32,7 +32,7 @@
     "mongoose": "^5.0.0-rc0"
   },
   "devDependencies": {
-    "@xazure/utils": "^0.1.1",
+    "@xazure/utils": "^0.1.2",
     "babel-cli": "^6.26.0",
     "babel-plugin-import-rename": "^1.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

@@ -3,11 +3,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A default theme for Xazure framework's xazure-module-theme.",
   "main": "dist",
   "scripts": {
-    "prepare": "npm run clean ; npm run build",
+    "prepare": "npm run clean & npm run build",
     "start": "npm run clean & concurrently \"npm run js:watch\" \"npm run css:watch\" \"npm run static:watch\"",
     "clean": "rimraf -rf dist || exit 0",
     "build": "npm run clean & npm run js & npm run js:module & npm run css & npm run static",
@@ -31,7 +31,7 @@
     "express": "^4.16.2"
   },
   "devDependencies": {
-    "@xazure/utils": "^0.1.1",
+    "@xazure/utils": "^0.1.2",
     "babel-cli": "^6.26.0",
     "babel-plugin-import-rename": "^1.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
