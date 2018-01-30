@@ -3,10 +3,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A lightweight, ultra flexible framework system.",
   "main": "dist/index.js",
-  "bin": "dist/bin",
+  "bin": "dist/bin/index.js",
   "scripts": {
     "prepare": "npm run clean & npm run build",
     "start": "npm run clean & babel src -d dist -s -w",
