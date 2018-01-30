@@ -3,12 +3,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Common utilities for Xazure framework modules.",
   "main": "dist/main",
   "jsnext:main": "dist/module",
   "module": "dist/module",
   "scripts": {
+    "prepare": "npm run clean ; npm run build",
     "start": "npm run clean & concurrently \"npm run build:main -- -w\" \"npm run build:module -- -w\"",
     "clean": "rimraf -rf dist || exit 0",
     "build": "npm run build:main & npm run build:module",

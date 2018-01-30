@@ -1,10 +1,11 @@
 {
   "name": "@xazure/demo",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A basic demo of Xazure framework.",
   "main": "index.js",
   "scripts": {
+    "prepare": "npm run clean ; npm run build",
     "start": "npm run clean & npm run build & xazure dev-mode",
     "clean": "rimraf -rf dist || exit 0",
     "start:watch": "nodemon --exec \"npm run start\"",
@@ -41,11 +42,11 @@
   },
   "dependencies": {
     "@xazure/logger-console": "^0.1.0",
-    "@xazure/module-admin": "^0.1.0",
-    "@xazure/module-auth": "^0.1.0",
-    "@xazure/module-posts": "^0.1.0",
-    "@xazure/module-theme": "^0.1.0",
-    "@xazure/theme-default": "^0.1.0",
+    "@xazure/module-admin": "^0.1.1",
+    "@xazure/module-auth": "^0.1.1",
+    "@xazure/module-posts": "^0.1.1",
+    "@xazure/module-theme": "^0.1.1",
+    "@xazure/theme-default": "^0.1.1",
     "merge": "^1.2.0",
     "xazure": "^0.1.0"
   },

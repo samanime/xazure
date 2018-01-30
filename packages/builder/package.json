@@ -3,11 +3,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist",
-  "bin": "dist/bin",
+  "bin": "dist/bin/index.js",
   "scripts": {
+    "prepare": "npm run clean ; npm run build",
     "start": "npm run clean & npm run build -- -w",
     "clean": "rimraf dist",
     "build": "babel src -d dist -s"
