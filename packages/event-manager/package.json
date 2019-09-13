@@ -22,7 +22,8 @@
     "build": "xazure-builder build"
   },
   "devDependencies": {
-    "@xazure/builder": "^0.x"
+    "@xazure/builder": "^0.x",
+    "@xazure/builder-utility": "^0.x"
   },
   "xazure": "utility"
 }

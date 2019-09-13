@@ -2,13 +2,20 @@
 
 A light-weight, ultra flexible framework.
 
+## Quick Start
+
+    npx lerna bootstrap
+    npx lerna run start --scope @xazure/demo --stream
+    
+This will start the server running on localhost:8000.
+
 ## ALPHA
 
 Xazure CMS and related packages are still in alpha. You are free to use them,
 but be aware that the APIs or functions may change.
 
 If you are interested in helping out or getting a preview, checkout the
-[Xazure Demo](https://github.com/samanime/xazure-demo). Get that running
+[Xazure Demo](https://github.com/samanime/xazure/packages/demo). Get that running
 and check out the code. I'll update READMEs more and more and begin other
 documentation as it gets closer to beta. I expect it to progress to beta fairly quickly.
 

@@ -25,7 +25,8 @@
     "express": "^4.16.2"
   },
   "devDependencies": {
-    "@xazure/builder": "^0.x"
+    "@xazure/builder": "^0.x",
+    "@xazure/builder-theme": "^0.x"
   },
   "xazure": "theme"
 }

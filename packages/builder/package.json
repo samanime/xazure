@@ -23,6 +23,11 @@
     "url": "https://github.com/samanime/xazure/issues"
   },
   "dependencies": {
+    "@xazure/builder-utility": "^0.x",
+    "@xazure/builder-module": "^0.x",
+    "@xazure/builder-logger": "^0.x",
+    "@xazure/builder-app": "^0.x",
+    "@xazure/builder-theme": "^0.x",
     "babel-core": "^6.26.0",
     "babel-plugin-import-rename": "^1.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

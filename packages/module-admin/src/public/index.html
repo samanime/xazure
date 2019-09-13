@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+  <title>Xazure CMS</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="{{root.publicPath}}/babel-polyfill"></script>
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+      integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+      crossorigin="anonymous"
+  />
+  {{ adminStyles }}
+  {{ modules }}
+  <script src="{{module.publicPath}}/index.js" type="module"></script>
+<body class="h-100">
+  <div id="app"></div>
